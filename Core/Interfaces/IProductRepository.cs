@@ -2,7 +2,7 @@ using Core.Etities;
 
 namespace Core.Interfaces {
     public interface IProductRepository {
-        Task<Product> GetProductByIdAsync();
+        Task<Product> GetProductByIdAsync(int id);
         Task<IReadOnlyList<Product>> GetProductsAsync();
     }
 }
