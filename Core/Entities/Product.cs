@@ -15,7 +15,7 @@ namespace Core.Etities {
 
         public int ProductTypeId { get; set; }
 
-        public ProductBrand ProductBrant { get; set; }
+        public ProductBrand ProductBrand { get; set; }
 
         public int ProductBrandId { get; set; }
     }

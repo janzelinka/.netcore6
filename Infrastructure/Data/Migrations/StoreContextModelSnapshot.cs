@@ -24,10 +24,12 @@ namespace Infrastructure.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .HasMaxLength(180)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PictureUrl")
@@ -35,7 +37,7 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<int>("ProductBrandId")
                         .HasColumnType("INTEGER");
@@ -84,7 +86,7 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Etities.Product", b =>
                 {
-                    b.HasOne("Core.Etities.ProductBrand", "ProductBrant")
+                    b.HasOne("Core.Etities.ProductBrand", "ProductBrand")
                         .WithMany()
                         .HasForeignKey("ProductBrandId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -96,7 +98,7 @@ namespace Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ProductBrant");
+                    b.Navigation("ProductBrand");
 
                     b.Navigation("Type");
                 });
